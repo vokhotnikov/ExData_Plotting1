@@ -1,19 +1,15 @@
-readData <- function() {
-    zipFile <- "exdata-data-household_power_consumption.zip"
-    dataFile <- "household_power_consumption.txt"    
-    
-    d <- read.table(unz(zipFile, dataFile), 
-                    header = TRUE, 
-                    sep = ";", 
-                    stringsAsFactors = FALSE, 
-                    na.strings = "?", 
-                    comment.char = "",
-                    colClasses = c(rep("character", 2), rep("numeric", 7)))
-    
-    
-    d1 <- d[grepl("^[12]/2/2007$", d$Date),]
-    
-    d1$DateTime <- strptime(paste(d1$Date, d1$Time), "%e/%m/%Y%t%H:%M:%S")
-    
-    d1
+source("read.R")
+
+drawPlot <- function() {
+    d <- readData()
+    hist(d$Global_active_power, 
+         col = "red", 
+         xlab = "Global Active Power (kilowatts)", 
+         main = "Global Active Power")
+}
+
+savePlot <- function() {
+    png("plot1.png", 480, 480)
+    drawPlot()
+    dev.off()
 }
