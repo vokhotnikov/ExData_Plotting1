@@ -1,3 +1,17 @@
+This is my course project 1 for Coursera course of "Explodatory Data Analysis".
+
+All the ``plotX.R`` scripts assume that R working directory is set to the directory of the 
+script and that the source data archive is in the same directory and is called
+``exdata-data-household_power_consumption.zip``. It is not necessary to unzip the archive.
+
+Despite the assignment stating that "There should be four PNG files and four R code files", I
+have chosen to extract the common data loading code into a separate script ``read.R`` and 
+source it from individual ``plotX.R`` scripts to avoid repetition of identical data loading code 
+in each file.
+
+The original assignment README text follows below.
+
+
 ## Introduction
 
 This assignment uses data from
