@@ -8,8 +8,6 @@ drawPlot <- function() {
          main = "Global Active Power")
 }
 
-savePlot <- function() {
-    png("plot1.png", 480, 480)
-    drawPlot()
-    dev.off()
-}
+png("plot1.png", 480, 480)
+drawPlot()
+dev.off()
